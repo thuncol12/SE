@@ -7,16 +7,16 @@
 #define _RECRUITMENTLIST_H
 
 class RecruitmentList {
-public: 
+
+    private:
+        Recruitment recruitmentList[];
+        int numOfRecruitments=0;
+    public: 
     
-Recruitment* addRecruitment();
+        void plusRecruitment(Recruitment* newRec); // 해당 채용 리스트에 새로운 채용 정보 추가.
     
-void plusRecruitment();
-    
-Recruitment** listRecruitments();
-private: 
-    Recruitment[] recruitmentList;
-    int numOfRecruitments;
+        Recruitment** listRecruitments(); // 해당 채용 리스트의 채용리스트 변수 주소 반환.
+
 };
 
 #endif //_RECRUITMENTLIST_H
