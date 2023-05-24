@@ -18,7 +18,7 @@ class Recruitment {
 
     public: 
         Recruitment(string part, int numOfDesired, string deadline, string companyName, int businessNumber);
-        Recruitment getRecruitmentInfo(); // 해당 채용의 정보 반환
+        string getRecruitmentInfo(); // 해당 채용의 정보 반환
 
 };
 

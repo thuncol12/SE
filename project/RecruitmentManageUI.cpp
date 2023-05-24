@@ -28,29 +28,13 @@ void RecruitmentManageUI::selectAddRecruitment(companyMember* CM) { // 회사 회원
     rManage.addNewRecruitment(CM);
 }
 
-void RecruitmentManageUI::createNewRecruitment() {
-
-}
-
-void RecruitmentManageUI::selectClosedRecruitmentList() {
-
-}
-
-void RecruitmentManageUI::selectRecruitmentSearch() {
-
-}
-
 /**
  * @return RecruitmentList*
  */
-RecruitmentList* RecruitmentManageUI::enterCompanyName() {
-    return null;
-}
 
-void RecruitmentManageUI::selectARecruitment() {
+void RecruitmentManageUI::selectRecruitStatistic(RecruitmentList* RList) {
+    RecruitmentManage searchRecruitStatistic = new RecruitmentManage();
 
-}
-
-void RecruitmentManageUI::applyForRecruitment() {
-
+    searchRecruitStatistic.searchRecruitStatistic(RList);
+    return;
 }

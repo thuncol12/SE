@@ -19,7 +19,7 @@ Recruitment::Recruitment(string part, int numOfDesired, string deadline, string 
 /**
  * @return Recruitment
  */
-Recruitment Recruitment::getRecruitmentInfo() {
+string Recruitment::getRecruitmentInfo() {
     string info = "";
     info = this->part + " " + to_string(this->numOfDesired) + " " + this->deadline; // info = 업무 인원 수 마감일
     return info;

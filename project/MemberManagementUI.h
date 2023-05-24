@@ -34,18 +34,6 @@ void SignOutCheckMessage();
 void SignOutMessage();
     
 void SelectSignUp();
-    
-void ShowMemberType();
-    
-void SelectType();
-    
-void ShowGeneralUI();
-    
-void ShowCompanyUI();
-    
-void InsertSignUpInfo();
-    
-void SignUpMessage();
 };
 
 #endif //_MEMBERMANAGEMENTUI_H

@@ -27,12 +27,6 @@ void ApplicationManagement::searchApplyStatistic(RecruitmentList* RList) { // RL
     return;
 }
 
-void ApplicationManagement::searchRecruitStatistic(RecruitmentList* RList) {
-    Statistic Stat = new Statistic(RList);
-    Stat.getRecruitStatistic();
-    return;
-}
-
 Recruitment* ApplicationManagement::showSearchResult(string companyName, RecruitmentList* RList) { // 해당 회사의 채용 정보 출력, RList: 시스템의 채용리스트
     Recruitment* rec;
 

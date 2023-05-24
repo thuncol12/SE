@@ -46,14 +46,8 @@ void RecruitmentManage::addNewRecruitment(companyMember* CM) {
     return;
 }
 
-void RecruitmentManage::showClosedRecruitmentList() {
-
-}
-
-void RecruitmentManage::showSearchResult() {
-
-}
-
-void RecruitmentManage::addNewApplication() {
-
+void RecruitmentManage::searchRecruitStatistic(RecruitmentList* RList) { // 채용 정보 통계 조회
+    Statistic Stat = new Statistic(RList);
+    Stat.getRecruitStatistic();
+    return;
 }

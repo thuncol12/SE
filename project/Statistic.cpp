@@ -63,11 +63,3 @@ void Statistic::getApplyStatistic() {
     return;
 
 }
-
-void Statistic::addRecruitStatistic() {
-
-}
-
-void Statistic::addApplyStatistic() {
-
-}

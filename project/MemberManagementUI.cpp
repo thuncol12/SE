@@ -10,78 +10,59 @@
  */
 
 
-void MemberManagementUI::SelectLogIn() {
+void MemberManagementUI::SelectLogIn(Member* mem) {
+	// id와 password 입력.
+	string id;
+	string password;
 
+	cin >> id;
+	cin >> password;
+
+	MemberManagement login = new MemberManagement();
+	bool flag;
+	flag=login.checkID(mem, id, password); // Login controller에게 멤버의 주소와 입력된 아이디,주소 전달.
+
+	/* 만약 나중에 필요할 시 수정.
+	if (flag == true) {
+		cout << "true" << endl;
+	}
+	else {
+		cout << "false" << endl;
+	}
+	*/
+
+	return;
 }
 
-void MemberManagementUI::InsertLogInInfo() {
+bool MemberManagementUI::selectLogOut(Member* mem) { // 로그아웃
+	MemberManagement logout = new MemberManagement();
 
+	logout.logOut(mem);
+
+	bool flag = true;
+
+	return flag; // 만약 flag가 true라면 main에서 초기화면으로 넘어간다.
 }
 
-void MemberManagementUI::ShowLogInUI() {
+void MemberManagementUI::selectSignOut(Member* mem, Member** memList) { // 회원 탈퇴.
+	MemberManagement signOut = new MemberManagement();
 
+	signOut.signOut(mem, memList);
 }
 
-void MemberManagementUI::LogInMessage() {
+void MemberManagementUI::selectSignUp(Member** memList) { // 회원 가입
+	int flag;
+	string name;
+	int number;
+	string id;
+	string password;
 
-}
+	cin >> flag;
+	cin >> name;
+	cin >> number;
+	cin >> id;
+	cin >> password;
 
-void MemberManagementUI::ValidMessage() {
-
-}
-
-void MemberManagementUI::SelectLogOut() {
-
-}
-
-void MemberManagementUI::LogOutCheckMessage() {
-
-}
-
-void MemberManagementUI::SelectOK() {
-
-}
-
-void MemberManagementUI::LogOutMessage() {
-
-}
-
-void MemberManagementUI::SelectSignOut() {
-
-}
-
-void MemberManagementUI::SignOutCheckMessage() {
-
-}
-
-void MemberManagementUI::SignOutMessage() {
-
-}
-
-void MemberManagementUI::SelectSignUp() {
-
-}
-
-void MemberManagementUI::ShowMemberType() {
-
-}
-
-void MemberManagementUI::SelectType() {
-
-}
-
-void MemberManagementUI::ShowGeneralUI() {
-
-}
-
-void MemberManagementUI::ShowCompanyUI() {
-
-}
-
-void MemberManagementUI::InsertSignUpInfo() {
-
-}
-
-void MemberManagementUI::SignUpMessage() {
-
+	MemberManagement signUp = new MemberManagement();
+	signUp.signUp(flag, name, number, id, password, memList);
 }
