@@ -4,13 +4,14 @@
 
 
 #include "MemberManagementUI.h"
+#include "MemberManagement.h"
 
 /**
  * MemberManagementUI implementation
  */
 
 
-void MemberManagementUI::SelectLogIn(Member* mem) {
+void MemberManagementUI::selectLogIn(Member* mem) {
 	// id와 password 입력.
 	string id;
 	string password;
@@ -18,9 +19,9 @@ void MemberManagementUI::SelectLogIn(Member* mem) {
 	cin >> id;
 	cin >> password;
 
-	MemberManagement login = new MemberManagement();
+	MemberManagement *login = new MemberManagement();
 	bool flag;
-	flag=login.checkID(mem, id, password); // Login controller에게 멤버의 주소와 입력된 아이디,주소 전달.
+	flag=login->checkID(mem, id, password); // Login controller에게 멤버의 주소와 입력된 아이디,주소 전달.
 
 	/* 만약 나중에 필요할 시 수정.
 	if (flag == true) {
@@ -35,9 +36,9 @@ void MemberManagementUI::SelectLogIn(Member* mem) {
 }
 
 bool MemberManagementUI::selectLogOut(Member* mem) { // 로그아웃
-	MemberManagement logout = new MemberManagement();
+	MemberManagement *logout = new MemberManagement();
 
-	logout.logOut(mem);
+	logout->logOut(mem);
 
 	bool flag = true;
 
@@ -45,9 +46,9 @@ bool MemberManagementUI::selectLogOut(Member* mem) { // 로그아웃
 }
 
 void MemberManagementUI::selectSignOut(Member* mem, Member** memList) { // 회원 탈퇴.
-	MemberManagement signOut = new MemberManagement();
+	MemberManagement *signOut = new MemberManagement();
 
-	signOut.signOut(mem, memList);
+	signOut->signOut(mem, memList);
 }
 
 void MemberManagementUI::selectSignUp(Member** memList) { // 회원 가입
@@ -63,6 +64,6 @@ void MemberManagementUI::selectSignUp(Member** memList) { // 회원 가입
 	cin >> id;
 	cin >> password;
 
-	MemberManagement signUp = new MemberManagement();
-	signUp.signUp(flag, name, number, id, password, memList);
+	MemberManagement *signUp = new MemberManagement();
+	signUp->signUp(flag, name, number, id, password, memList);
 }

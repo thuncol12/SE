@@ -4,6 +4,8 @@
 
 
 #include "MemberManagement.h"
+#include "CompanyMember.h"
+#include "GeneralMember.h"
 
 /**
  * MemberManagement implementation
@@ -14,7 +16,8 @@
  * @return bool
  */
 bool MemberManagement::checkID(Member* mem, string id, string password) {
-    bool flag = ref.CheckingID(id, password);
+    
+    bool flag = mem->checkingID(id, password);
     return flag;
 }
 
@@ -27,7 +30,7 @@ void MemberManagement::signOut(Member* mem, Member** memList) {
     
     for (int i = 0; i < numOfMembers; i++) {
         if (mem == memList[i]) {
-            mem.~Member();
+            mem->deleteMember();
             for (int j = i; j < numOfMembers-1; j++) {
                 memList[j] = memList[j + 1];
             }
@@ -49,3 +52,5 @@ void MemberManagement::signUp(int flag, string name, int number, string id, stri
         cout << "error(회원 유형 선택 1 or 2)" << endl;
     }
 }
+
+MemberManagement::MemberManagement(){}

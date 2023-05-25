@@ -26,3 +26,5 @@ Member::Member(string ID, string password) {
     this->ID = ID;
     this->password = password;
 }
+
+Member::Member(){}

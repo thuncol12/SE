@@ -1,13 +1,13 @@
 /**
  * Project Untitled
  */
-
+#include <string>
+#include <iostream>
 
 #ifndef _MEMBER_H
 #define _MEMBER_H
 
-#include <string>
-
+using namespace std;
 class Member {
     public: 
     
@@ -16,6 +16,7 @@ class Member {
         void deleteMember();
 
         Member(string ID, string password);
+        Member();
 
     private: 
         string ID;
