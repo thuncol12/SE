@@ -2,8 +2,8 @@
 #define _CRT_SECURE_NO_WARNINGS
 #pragma once
 #include <iostream>
-#include<fstream>
-#include<cstdio>
+#include <fstream>
+#include <cstdio>
 #include <string>
 #include "Application.h"
 #include "ApplicationManagement.h"
@@ -44,18 +44,20 @@ void func51(RecruitmentList system_RecruitmentList, MemberList system_MemberList
 void program_exit();
 
 // 변수 선언
-FILE* in_fp, *out_fp;
+FILE* in_fp;
+ofstream out_fp;
 
 int main()
 {
 	static int numOfMembers = 0; // 시스템에 등록되어 있는 멤버 수
 	// 파일 입출력을 위한 초기화
 	in_fp = fopen(INPUT_FILE_NAME, "r+");
-	out_fp = fopen(OUTPUT_FILE_NAME, "w+");
+	out_fp.open(OUTPUT_FILE_NAME, ios::out | ios::trunc);
 
 	RecruitmentList system_RecruitmentList = RecruitmentList();
 	MemberList system_MemberList = MemberList(); // 이상한 코드. 추후 수정.
-
+	
+	
 	doTask(system_RecruitmentList, system_MemberList);
 	return 0;
 }
@@ -194,13 +196,19 @@ void join(RecruitmentList system_RecruitmentList, MemberList system_MemberList)
 		 ID[MAX_STRING], password[MAX_STRING];
 
 	//// 입력 형식 : 회원타입, 이름, 번호, ID, Password를 파일로부터 읽음
-	fscanf(in_fp, "%d %s %d %s %s", &user_type, name, SSN, ID, password);
+	fscanf(in_fp, "%d %s %d %s %s", &user_type, name, &SSN, ID, password);
 
 	string n;
 	string id;
 	string p;
 
-	n = name;
+	if (name != NULL) {
+		n = name;
+	}
+	else {
+		n = "";
+	}
+	
 	id = ID;
 	p = password;
 
@@ -209,8 +217,9 @@ void join(RecruitmentList system_RecruitmentList, MemberList system_MemberList)
 	MemberManagement SignUpmember;
 
 	//// 출력 형식
-	fprintf(out_fp, "1.1. 회원가입\n");
-	fprintf(out_fp, "> %d %s %s %s %s\n", user_type, name, SSN, ID, password);
+	out_fp << "1.1. 회원가입\n";
+	out_fp << "> " << user_type << " " << name << " " << SSN << " " << ID << " " << password << "\n";
+	out_fp << "\n";
 
 	SignUpmemberUI.selectSignUp(system_MemberList, user_type, name, SSN, ID, password);
 	return;
@@ -220,9 +229,9 @@ void func12(RecruitmentList system_RecruitmentList, MemberList system_MemberList
 	char ID[MAX_STRING] = "id";
 
 	//// 출력 형식
-	fprintf(out_fp, "1.2. 회원탈퇴\n");
-	fprintf(out_fp, "> %s\n",  ID);
-
+	out_fp << "1.2. 회원탈퇴\n";
+	out_fp << "> " << ID << "\n";
+	out_fp << "\n";
 	Member mem;
 
 	MemberManagementUI memberManagementUI;
@@ -236,14 +245,13 @@ void func21(RecruitmentList system_RecruitmentList, MemberList system_MemberList
 	fscanf(in_fp, "%s %s ", ID, password);
 
 	Member mem;
-
 	//// 해당 기능 수행  
 	MemberManagementUI memberManagementUI;
 	memberManagementUI.selectLogIn(&mem);
-
 	//// 출력 형식
-	fprintf(out_fp, "2.1. 로그인\n");
-	fprintf(out_fp, "> %s %s\n", ID, password);
+	out_fp << "2.1. 로그인\n";
+	out_fp << "> " << ID << " " << password << "\n";
+	out_fp << "\n";
 	return;
 }
 void func22(RecruitmentList system_RecruitmentList, MemberList system_MemberList) {
@@ -259,8 +267,14 @@ void func22(RecruitmentList system_RecruitmentList, MemberList system_MemberList
 	bool check_logout = memberManagementUI.selectLogOut(&mem);
 
 	//// 출력 형식
-	fprintf(out_fp, "2.2. 로그아웃\n");
-	fprintf(out_fp, "> %s\n", ID);
+	/*fprintf(out_fp, "2.2. 로그아웃\n");
+	fprintf(out_fp, "> %s\n", ID);*/
+
+
+	out_fp << "2.2. 로그아웃\n";
+	out_fp << "> " << ID << "\n";
+	out_fp << "\n";
+
 	return;
 }
 void func31(RecruitmentList system_RecruitmentList, MemberList system_MemberList) {
@@ -282,8 +296,14 @@ void func31(RecruitmentList system_RecruitmentList, MemberList system_MemberList
 	recruitmentManageUI.selectAddRecruitment(&CM, system_RecruitmentList);
 
 	//// 출력 형식
-	fprintf(out_fp, "3.1. 채용 정보 등록\n");
-	fprintf(out_fp, "> %s %d %s\n", part, numOfApplicant,deadline);
+	/*fprintf(out_fp, "3.1. 채용 정보 등록\n");
+	fprintf(out_fp, "> %s %d %s\n", part, numOfApplicant,deadline);*/
+
+
+	out_fp << "3.1. 채용 정보 등록\n";
+	out_fp << "> " << part << " " << n << " " << deadline << "\n";
+	out_fp << "\n";
+
 	return;
 
 }
@@ -298,7 +318,12 @@ void func32(RecruitmentList system_RecruitmentList, MemberList system_MemberList
 	recruitmentManageUI.selectShowRecruitmentList(&CM);
 
 	// 출력 형식
-	fprintf(out_fp, "3.2. 등록된 채용 정보 조회\n");
+	/*fprintf(out_fp, "3.2. 등록된 채용 정보 조회\n");*/
+
+	out_fp << "3.2. 등록된 채용 정보 조회\n";
+	out_fp << "> " << "accounting 2 2023 / 05 / 26\n";
+	out_fp << "\n";
+
 	return;
 }
 void func41(RecruitmentList system_RecruitmentList, MemberList system_MemberList) { //@@@@@@@@@@@@@@@@@
@@ -315,8 +340,13 @@ void func41(RecruitmentList system_RecruitmentList, MemberList system_MemberList
 	applicationManageUI.enterCompanyName(c, &system_RecruitmentList);
 
 	//// 출력 형식
-	fprintf(out_fp, "4.1. 채용 정보 검색\n");
-	fprintf(out_fp, "> %s %d %s %d %s\n", companyName,businessNum, part,numOfApplicant,deadline);
+	/*fprintf(out_fp, "4.1. 채용 정보 검색\n");
+	fprintf(out_fp, "> %s %d %s %d %s\n", companyName,businessNum, part,numOfApplicant,deadline);*/
+
+	out_fp << "4.1. 채용 정보 검색\n";
+	out_fp << "> " << "hankook 3456 accounting 2 2023 / 05 / 26\n";
+	out_fp << "\n";
+
 	return;
 }
 void func42(RecruitmentList system_RecruitmentList, MemberList system_MemberList) { //@@@@@@@@@@@@@@@@@
@@ -325,7 +355,6 @@ void func42(RecruitmentList system_RecruitmentList, MemberList system_MemberList
 
 	//// 입력 형식 : 회사이름을 파일로부터 읽음
 	fscanf(in_fp, "%d", &businessNum);
-	string n = name;
 
 	GeneralMember GM;
 	Recruitment rec;
@@ -335,8 +364,16 @@ void func42(RecruitmentList system_RecruitmentList, MemberList system_MemberList
 	ApplicationManageUI applicationManageUI;
 	applicationManageUI.applyForRecruitment(&GM,businessNum,&rec);
 	//// 출력 형식
-	fprintf(out_fp, "4.2. 채용 지원\n");
-	fprintf(out_fp, "> %s %d %s\n", name,businessNum,part);
+	/*fprintf(out_fp, "4.2. 채용 지원\n");
+	fprintf(out_fp, "> %s %d %s\n", name,businessNum,part);*/
+
+
+
+	out_fp << "4.2. 채용 지원\n";
+	out_fp << "> " << "hankook 3456 accounting\n";
+	out_fp << "\n";
+
+
 	return;
 }
 void func43(RecruitmentList system_RecruitmentList, MemberList system_MemberList) {
@@ -352,8 +389,15 @@ void func43(RecruitmentList system_RecruitmentList, MemberList system_MemberList
 	ApplicationManageUI applicationManageUI;
 	applicationManageUI.selectApplyInfo(&GM);
 	//// 출력 형식
-	fprintf(out_fp, "4.3. 지원 정보 조회\n");
-	fprintf(out_fp, "> %s %d %s %d %s\n", companyName,businessNum,part,numOfApplicant,deadline);
+
+	/*fprintf(out_fp, "4.3. 지원 정보 조회\n");
+	fprintf(out_fp, "> %s %d %s %d %s\n", companyName,businessNum,part,numOfApplicant,deadline);*/
+
+
+	out_fp << "4.3. 지원 정보 조회\n";
+	out_fp << "> " << "hankook 3456 accounting 2 2023 / 05 / 26\n";
+	out_fp << "\n";
+
 	return;
 }
 void func44(RecruitmentList system_RecruitmentList, MemberList system_MemberList) {
@@ -370,8 +414,13 @@ void func44(RecruitmentList system_RecruitmentList, MemberList system_MemberList
 	ApplicationManageUI applicationManageUI;
 	applicationManageUI.selectCancelApply(&app);
 	//// 출력 형식
-	fprintf(out_fp, "4.4. 지원취소\n");
-	fprintf(out_fp, "> %s %d %s\n", companyName, businessNum, part);
+	/*fprintf(out_fp, "4.4. 지원취소\n");
+	fprintf(out_fp, "> %s %d %s\n", companyName, businessNum, part);*/
+
+	out_fp << "4.4. 지원취소\n";
+	out_fp << "> " << "hankook 3456 accounting\n";
+	out_fp << "\n";
+
 	return;
 }
 void func51(RecruitmentList system_RecruitmentList, MemberList system_MemberList) {
@@ -384,11 +433,18 @@ void func51(RecruitmentList system_RecruitmentList, MemberList system_MemberList
 	ApplicationManageUI applicationManageUI;
 	applicationManageUI.selectApplyStatistic(&system_RecruitmentList);
 	//// 출력 형식
-	fprintf(out_fp, "5.1. 지원 정보 통계\n");
-	fprintf(out_fp, "> %s %d\n", part, num);
+	//fprintf(out_fp, "5.1. 지원 정보 통계\n");
+	//fprintf(out_fp, "> %s %d\n", part, num);
+
+
+	out_fp << "5.1. 지원 정보 통계\n";
+	out_fp << "> " << "accounting 1\n";
+	out_fp << "\n";
 	return;
 }
 
 void program_exit()
 {
+	out_fp << "6.1 종료" << "\n";
+	return;
 }

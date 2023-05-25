@@ -29,7 +29,7 @@ void ApplicationManagement::searchApplyStatistic(RecruitmentList* RList) { // RL
 }
 
 Recruitment ApplicationManagement::showSearchResult(string companyName, RecruitmentList* RList) { // 
-     Recruitment* rec;
+    Recruitment* rec = NULL;
 
     for (int i = 0; i < RList->getNumOfRecruitments(); i++) {
         

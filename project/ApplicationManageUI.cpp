@@ -36,13 +36,14 @@ void ApplicationManageUI::selectCancelApply(Application* app) {
 }
 
 void ApplicationManageUI::enterCompanyName(string companyName, RecruitmentList* Rlist) {
-	ApplicationManagement* showSearchResult = new ApplicationManagement();
+	//ApplicationManagement* showSearchResult = new ApplicationManagement();
 
-	Recruitment rec = showSearchResult->showSearchResult(companyName, Rlist);
+	//Recruitment rec = showSearchResult->showSearchResult(companyName, Rlist);
 
 	/*
 	rec
 	*/
+	return;
 }
 
 void ApplicationManageUI::applyForRecruitment(GeneralMember* GM, int businessNum, Recruitment* rec) {

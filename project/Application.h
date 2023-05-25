@@ -8,8 +8,6 @@
 #pragma once
 #include <iostream>
 #include <string>
-#include "GeneralMember.h"
-#include "Recruitment.h"
 using namespace std;
 
 class Application {
