@@ -9,8 +9,9 @@
  * CompanyMember implementation
  */
 
-CompanyMember::CompanyMember(string companyName, int businessNumber) {
+CompanyMember::CompanyMember(string companyName, int businessNumber, string id, string password) {
 	this->companyName = companyName;
 	this->businessNumber = businessNumber;
-	this->recruitmentList = new RecruitmentList();
+	this->recruitmentList = RecruitmentList();
+	Member(id, password);
 }

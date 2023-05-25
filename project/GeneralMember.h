@@ -15,14 +15,17 @@
 class GeneralMember: public Member {
     public: 
         
-        GeneralMember(string name, int idNum);           // 생성자
+        GeneralMember(string name, int number, string id, string password);           // 생성자
         void addApplication(Application* pNewApplication); // 지원서 수 +1
     
         Application** listApplication();
 
+        int getNumOfApplication() {
+            return this->numOfApplication;
+        }
     private: 
         int numOfApplication=0;
-        Application applicationList[];
+        Application* applicationList[100];
         string name;
         int idNum;
 };

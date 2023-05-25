@@ -3,52 +3,63 @@
  */
 
 
+#include <string>
+#include "Application.h"
+#include "ApplicationManagement.h"
 #include "ApplicationManageUI.h"
+#include "CompanyMember.h"
+#include "GeneralMember.h"
+#include "Member.h"
+#include "MemberManagement.h"
+#include "MemberManagementUI.h"
+#include "Recruitment.h"
+#include "RecruitmentList.h"
+#include "RecruitmentManage.h"
+#include "RecruitmentManageUI.h"
+#include "Statistic.h"
 
-/**
- * ApplicationManageUI implementation
- */
+ /**
+  * ApplicationManageUI implementation
+  */
 
 
 void ApplicationManageUI::selectApplyInfo(GeneralMember* mem) {
-	ApplicationManage applyInfo = new ApplicationManage();
+	ApplicationManagement* applyInfo = new ApplicationManagement();
 
-	applyInfo.showApplyInfo(mem);
+	applyInfo->showApplyInfo(mem);
 
 	return;
 }
 
 void ApplicationManageUI::selectApplyStatistic(RecruitmentList* RList) {
-	ApplicationManage applicationManage = new ApplicationManage();
+	ApplicationManagement* applicationManage = new ApplicationManagement();
 
-	applicationManage.searchApplyStatistic(RList);
+	applicationManage->searchApplyStatistic(RList);
 	return;
 }
 
-void ApplicationManageUI::selectCancelApply(GeneralMember* mem) {
-	ApplicationManage cancelApply = new ApplicationManage();
+void ApplicationManageUI::selectCancelApply(Application* app) {
+	ApplicationManagement* cancelApply = new ApplicationManagement();
 
-	Application* app = mem.applicationList[mem.numOfApplication--];
+	cancelApply->cancelApply(app);
 
-	cancelApply.cancelApply(app);
 	return;
-
 }
 
-void ApplicationManageUI::enterCompanyName(string companyName) {
-	ApplicationManage showSearchResult = new ApplicationManage();
+void ApplicationManageUI::enterCompanyName(string companyName, RecruitmentList* Rlist) {
+	ApplicationManagement* showSearchResult = new ApplicationManagement();
 
-	Recruitment* rec = showSearchResult.showSearchResult(companyName);
+	Recruitment rec = showSearchResult->showSearchResult(companyName, Rlist);
 
 	/*
-	rec를 리턴할지 출력할지 결정.
+	rec
 	*/
 }
 
 void ApplicationManageUI::applyForRecruitment(GeneralMember* GM, int businessNum, Recruitment* rec) {
-	ApplicationManage addNewApplication = new ApplicationManage();
+	ApplicationManagement* addNewApplication = new ApplicationManagement();
 
-	addNewApplication.addNewApplication(GM, businessNum, rec);
+	addNewApplication->addNewApplication(GM, businessNum, rec);
 
 	return;
 }

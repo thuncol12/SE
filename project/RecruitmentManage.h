@@ -9,19 +9,17 @@
 #include <string>
 #include <time.h>
 #include "RecruitmentList.h"
+#include "CompanyMember.h"
+#include "Statistic.h"
 
 class RecruitmentManage {
 public: 
     
-void showRecruitmentList(companyMember* CM); // 등록된 채용 정보 내역 조회.
+void showRecruitmentList(CompanyMember* CM); // 등록된 채용 정보 내역 조회.
     
-void addNewRecruitment(companyMember* CM); // 회사 회원의 채용 정보 등록.
-    
-void showClosedRecruitmentList();
-    
-void showSearchResult();
-    
-void addNewApplication();
+void addNewRecruitment(CompanyMember* CM, RecruitmentList RList); // 회사 회원의 채용 정보 등록.
+
+void searchRecruitStatistic(RecruitmentList* RList);
 };
 
 #endif //_RECRUITMENTMANAGE_H

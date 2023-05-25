@@ -9,23 +9,20 @@
 #include <string>
 #include "RecruitmentList.h"
 #include <vector>
+using namespace std;
 
 class Statistic {
-    public: 
-    
-        void getRecruitStatistic();
-    
-        void getApplyStatistic();
-    
-        void addRecruitStatistic();
-    
-        void addApplyStatistic();
+public:
 
-        Statistic(RecruitmentList* RList);
+    void getRecruitStatistic();
 
-    private: 
-        map<string, int> partOfGeneralMember; // 업무별 지원자 수
-        map<string, int> numOfApply; // 업무별 지원 횟수
+    void getApplyStatistic();
+
+    Statistic(RecruitmentList* RList);
+
+private:
+    map<string, int> partOfGeneralMember; // 
+    map<string, int> numOfApply; // 
 };
 
 #endif //_STATISTIC_H

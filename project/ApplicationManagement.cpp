@@ -3,60 +3,62 @@
  */
 
 
+#include <string>
+#include "Application.h"
 #include "ApplicationManagement.h"
+#include "ApplicationManageUI.h"
+#include "CompanyMember.h"
+#include "GeneralMember.h"
+#include "Member.h"
+#include "MemberManagement.h"
+#include "MemberManagementUI.h"
+#include "Recruitment.h"
+#include "RecruitmentList.h"
+#include "RecruitmentManage.h"
+#include "RecruitmentManageUI.h"
+#include "Statistic.h"
 
-/**
- * ApplicationManagement implementation
- */
-
+ /**
+  * ApplicationManagement implementation
+  */
 
 void ApplicationManagement::showApplyInfo(GeneralMember* GM) {
     Application** AppList;
-    AppList = GM.listApplication();
+    AppList = GM->listApplication();
 
-    for (int i = 0; i < GM.numOfApplication; i++) {
-        AppList[i].getApplicationDetails();
+    for (int i = 0; i < GM->getNumOfApplication(); i++) {
+        (*AppList)[i].getApplicationDetails();
     }
 
     return;
 }
 
-void ApplicationManagement::searchApplyStatistic(RecruitmentList* RList) { // RList: 시스템의 채용리스트
-    Statistic Stat = new Statistic(RList);
-    Stat.getApplyStatistic();
+void ApplicationManagement::searchApplyStatistic(RecruitmentList* RList) { // RList: 
+    Statistic* Stat = new Statistic(RList);
+    Stat->getApplyStatistic();
     return;
 }
 
-Recruitment* ApplicationManagement::showSearchResult(string companyName, RecruitmentList* RList) { // 해당 회사의 채용 정보 출력, RList: 시스템의 채용리스트
-    Recruitment* rec;
+Recruitment ApplicationManagement::showSearchResult(string companyName, RecruitmentList* RList) { // 
+     Recruitment* rec;
 
-    for (int i = 0; i < RList.numOfRecruitments; i++) {
-        if (companyName.compare(RList[i].companyName) == 0) {
-            string str = "";
-            str = companyName + " " + RList[i].businessNumber + " ";
-            str += RList[i]getRecruitmentInfo();
-            cout << str << endl;
+    for (int i = 0; i < RList->getNumOfRecruitments(); i++) {
+        
+         if (companyName.compare(RList->listRecruitments()[i].getCompanyName()) == 0) {
+             string str = "";
+             str = companyName + " " + RList->listRecruitments()[i].getCompanyName() + " ";
+             str += RList->listRecruitments()[i].getRecruitmentInfo();
+             cout << str << endl;
 
-            rec = RList[i]
-        }
-    }
-    
-    return rec;
+             rec = &RList->listRecruitments()[i];
+         }
+     }
+     return *rec;
 }
 
-void ApplicationManagement::addNewApplication(GeneralMember* GM, int bNum, Recruitment* rec) { // 해당 채용에 즉시 지원. UI로부터 사업자번호를 받음.
-    string companyName;
-    int businessNumber;
-    string part;
-    string deadline;
-
-    companyName = rec.companyName;
-    businessNumber = bNum;
-    part = rec.part;
-    deadline = rec.deadline;
-
-    Application app = new Application(companyName, businessNumber, part, deadline);
-    GM.addApplication(*app);
+void ApplicationManagement::addNewApplication(GeneralMember* GM, int bNum, Recruitment* rec) { //.
+    Application* app = new Application(rec->getCompanyName(), bNum, rec->getPart(), rec->getDeadline());
+    GM->addApplication(app);
     return;
 }
 
@@ -64,6 +66,6 @@ void ApplicationManagement::addNewApplication(GeneralMember* GM, int bNum, Recru
  * @return bool
  */
 void ApplicationManagement::cancelApply(Application* app) {
-    app.cancelApplication();
+    app->cancelApplication();
     return;
 }

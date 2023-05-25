@@ -2,19 +2,30 @@
  * Project Untitled
  */
 
-
+#include <string>
 #include "Application.h"
+#include "ApplicationManagement.h"
+#include "ApplicationManageUI.h"
+#include "CompanyMember.h"
+#include "GeneralMember.h"
+#include "Member.h"
+#include "MemberManagement.h"
+#include "MemberManagementUI.h"
+#include "Recruitment.h"
+#include "RecruitmentList.h"
+#include "RecruitmentManage.h"
+#include "RecruitmentManageUI.h"
+#include "Statistic.h"
+
+ /**
+  * Application implementation
+  */
 
 
-/**
- * Application implementation
- */
-
-
-/**
- * @return Application
- */
-Application::Application(string companyName, int businessNumber, string part, string deadline){
+  /**
+   * @return Application
+   */
+Application::Application(string companyName, int businessNumber, string part, string deadline) {
     this->companyName = companyName;
     this->businessNumber = businessNumber;
     this->part = part;
@@ -28,7 +39,6 @@ void Application::getApplicationDetails() {
 }
 
 void Application::cancelApplication() {
-    
     this->cancel = true;
     return;
 }

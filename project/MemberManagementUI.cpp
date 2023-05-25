@@ -45,24 +45,18 @@ bool MemberManagementUI::selectLogOut(Member* mem) { // 로그아웃
 	return flag; // 만약 flag가 true라면 main에서 초기화면으로 넘어간다.
 }
 
-void MemberManagementUI::selectSignOut(Member* mem, Member** memList) { // 회원 탈퇴.
+void MemberManagementUI::selectSignOut(Member* mem, MemberList memList) { // 회원 탈퇴.
 	MemberManagement *signOut = new MemberManagement();
 
 	signOut->signOut(mem, memList);
 }
 
-void MemberManagementUI::selectSignUp(Member** memList) { // 회원 가입
+void MemberManagementUI::selectSignUp(MemberList memList, int flag, string name, int number, string id, string password) { // 회원 가입
 	int flag;
 	string name;
 	int number;
 	string id;
 	string password;
-
-	cin >> flag;
-	cin >> name;
-	cin >> number;
-	cin >> id;
-	cin >> password;
 
 	MemberManagement *signUp = new MemberManagement();
 	signUp->signUp(flag, name, number, id, password, memList);

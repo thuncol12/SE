@@ -17,7 +17,13 @@ class CompanyMember: public Member {
         RecruitmentList recruitmentList;
 
     public:
-        CompanyMember(string companyName, int businessNumber); // 持失切
+        CompanyMember(string companyName, int businessNumber, string id, string password); // 持失切
+        RecruitmentList getRecruitmentList() {
+            return recruitmentList;
+        }
+        string getCompanyName() {
+            return companyName;
+        }
 };
 
 #endif //_COMPANYMEMBER_H

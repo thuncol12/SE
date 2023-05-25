@@ -9,21 +9,21 @@
 #include "Application.h"
 #include "GeneralMember.h"
 #include "Statistic.h"
+#include <string>
+using namespace std;
 
 class ApplicationManagement {
-    public: 
-    
-        void showApplyInfo(GeneralMember* GM);
-    
-        void searchApplyStatistic(RecruitmentList* RList);
-    
-        void searchRecruitStatistic(RecruitmentList* RList);
-    
-        void cancelApply(Application* app);
+public:
 
-        void showSearchResult(string companyName, RecruitmentList* RList);
+    void showApplyInfo(GeneralMember* GM);
 
-        void addNewApplication(GeneralMember* GM, int bNum, Recruitment* rec);
+    void searchApplyStatistic(RecruitmentList* RList);
+
+    void cancelApply(Application* app);
+
+    Recruitment showSearchResult(string companyName, RecruitmentList* RList);
+
+    void addNewApplication(GeneralMember* GM, int bNum, Recruitment* rec);
 };
 
 #endif //_APPLICATIONMANAGEMENT_H

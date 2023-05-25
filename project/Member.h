@@ -17,7 +17,6 @@ class Member {
 
         Member(string ID, string password);
         Member();
-
     private: 
         string ID;
         string password;

@@ -10,9 +10,9 @@
  */
 
 
-void RecruitmentManageUI::selectShowRecruitmentList(companyMember* CM) { // 회사 회원 CM이 등록한 채용 정보 내역 조회를 선택할 경우 해당 함수가 호출됨.
+void RecruitmentManageUI::selectShowRecruitmentList(CompanyMember* CM) { // 회사 회원 CM이 등록한 채용 정보 내역 조회를 선택할 경우 해당 함수가 호출됨.
 
-    RecruitmentManage rManage = new RecruitmentManage();
+    RecruitmentManage rManage = RecruitmentManage();
 
     rManage.showRecruitmentList(CM);
 
@@ -21,11 +21,11 @@ void RecruitmentManageUI::selectShowRecruitmentList(companyMember* CM) { // 회사
     return;
 }
 
-void RecruitmentManageUI::selectAddRecruitment(companyMember* CM) { // 회사 회원 CM이 채용 정보 등록을 선택할 경우 해당 함수가 호출됨.
+void RecruitmentManageUI::selectAddRecruitment(CompanyMember* CM, RecruitmentList RList) { // 회사 회원 CM이 채용 정보 등록을 선택할 경우 해당 함수가 호출됨.
     
-    RecruitmentManage rManage = new RecruitmentManage();
+    RecruitmentManage rManage = RecruitmentManage();
 
-    rManage.addNewRecruitment(CM);
+    rManage.addNewRecruitment(CM, RList);
 }
 
 /**
@@ -33,7 +33,7 @@ void RecruitmentManageUI::selectAddRecruitment(companyMember* CM) { // 회사 회원
  */
 
 void RecruitmentManageUI::selectRecruitStatistic(RecruitmentList* RList) {
-    RecruitmentManage searchRecruitStatistic = new RecruitmentManage();
+    RecruitmentManage searchRecruitStatistic = RecruitmentManage();
 
     searchRecruitStatistic.searchRecruitStatistic(RList);
     return;

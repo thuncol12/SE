@@ -3,25 +3,37 @@
  */
 
 
+#include <string>
+#include "Application.h"
+#include "ApplicationManagement.h"
+#include "ApplicationManageUI.h"
+#include "CompanyMember.h"
+#include "GeneralMember.h"
+#include "Member.h"
+#include "MemberManagement.h"
+#include "MemberManagementUI.h"
+#include "Recruitment.h"
+#include "RecruitmentList.h"
+#include "RecruitmentManage.h"
+#include "RecruitmentManageUI.h"
 #include "Statistic.h"
 
-/**
- * Statistic implementation
- */
-Statistic::Statistic(RecruitmentList* RList) { // 시스템의 채용 리스트를 인자로 받는다.
+ /**
+  * Statistic implementation
+  */
+Statistic::Statistic(RecruitmentList* RList) { //
 
 
-    // 업무별 지원자 수 map 만들기
+    // 
     Recruitment* Rec;
     string part;
-
-    for (int i = 0; i < RList.numOfRecruitments; ++) {
-        Rec = RList.recruitmentList[i];
-        part = Rec.part;
+    
+    for (int i = 0; i < RList->getNumOfRecruitments(); i++) {
+        part = RList->listRecruitments()[i].getPart();
         bool flag = false;
 
         for (auto iter = partOfGeneralMember.begin(); iter != partOfGeneralMember.end(); iter++) {
-            if part.compare(Iter->first.c_str()) {
+            if (part.compare(iter->first.c_str())) {
                 flag = true;
             }
         }
@@ -33,7 +45,7 @@ Statistic::Statistic(RecruitmentList* RList) { // 시스템의 채용 리스트를 인자로 
         }
 
     }
-    // 업무별 지원자 수 map 만들기 끝
+    // 
 
 }
 

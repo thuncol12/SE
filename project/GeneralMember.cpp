@@ -9,11 +9,11 @@
  * GeneralMember implementation
  */
 
-GeneralMember::GeneralMember(string name, int idNum) {
+GeneralMember::GeneralMember(string name, int idNum, string id, string password) {
     this->name = name;
     this->idNum = idNum;
     this->numOfApplication = 0;
-
+    Member(id, password);
 }
 
 void GeneralMember::addApplication(Application* pNewApplication)
@@ -27,5 +27,5 @@ void GeneralMember::addApplication(Application* pNewApplication)
  * @return Application**
  */
 Application** GeneralMember::listApplication() {
-    return this->*applicationList;
+    return this->applicationList;
 }

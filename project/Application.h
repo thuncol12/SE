@@ -12,19 +12,19 @@
 using namespace std;
 
 class Application {
-public: 
+public:
     Application(string companyName, int businessNumber, string part, string deadline); // 생성자
 
     void getApplicationDetails();
-    
+
     void cancelApplication();
 
-private: 
+private:
     string companyName; //회사이름
     int businessNumber; //사업자번호
     string part; //업무
     string deadline; //신청마감일
-    int numOfApplicants=0; //인원수
+    int numOfApplicants = 0; //인원수
     bool cancel;
 };
 
