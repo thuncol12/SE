@@ -2,7 +2,6 @@
  * Project Untitled
  */
 
-
 #ifndef _APPLICATION_H
 #define _APPLICATION_H
 #pragma once
@@ -10,23 +9,21 @@
 #include <string>
 using namespace std;
 
-class Application {
+class Application
+{
 public:
-    Application(string companyName, int businessNumber, string part, string deadline); // »ı¼ºÀÚ
-
-    void getApplicationDetails();
-
-    void cancelApplication();
-
-    Application(){}
+  Application(string companyName, int businessNumber, string part, string deadline);
+  void getApplicationDetails();
+  void cancelApplication();
+  Application() {}
 
 private:
-    string companyName; //È¸»çÀÌ¸§
-    int businessNumber; //»ç¾÷ÀÚ¹øÈ£
-    string part; //¾÷¹«
-    string deadline; //½ÅÃ»¸¶°¨ÀÏ
-    int numOfApplicants = 0; //ÀÎ¿ø¼ö
-    bool cancel;
+  string companyName;      // íšŒì‚¬ì´ë¦„.
+  int businessNumber;      // ì‚¬ì—…ìë²ˆí˜¸.
+  string part;             // ì—…ë¬´.
+  string deadline;         // ì‹ ì²­ ë§ˆê°ì¼.
+  int numOfApplicants = 0; // ì¸ì›ìˆ˜.
+  bool cancel;             // ì§€ì› ì·¨ì†Œ ê´€ë ¨ ë³€ìˆ˜.
 };
 
 #endif //_APPLICATION_H
