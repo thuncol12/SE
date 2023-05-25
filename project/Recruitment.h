@@ -12,24 +12,24 @@ using namespace std;
 
 class Recruitment {
     private:
-        string part;
-        int numOfDesired;
-        string deadline;
-        int numOfApplicants=0;
-        string companyName;
-        int businessNumber;
+        string part; //업무
+        int numOfDesired; //마감 인원 수
+        string deadline; //마감일
+        int numOfApplicants=0; //지원자 수
+        string companyName; //회사 이름
+        int businessNumber; //사업자 번호
 
     public: 
-        Recruitment(string part, int numOfDesired, string deadline, string companyName, int businessNumber);
+        Recruitment(string part, int numOfDesired, string deadline, string companyName, int businessNumber);  // 채용 생성자
         string getRecruitmentInfo(); // 해당 채용의 정보 반환
-        string getPart() {
+        string getPart() { // 해당 채용의 업무 정보 반환
             return part;
         }
         string getCompanyName() {
-            return companyName;
+            return companyName; // 해당 채용의 회사 이름 정보 반환
         }
         string getDeadline() {
-            return deadline;
+            return deadline; // 해당 채용의 마감일 정보 반환
         }
         Recruitment() {
 
