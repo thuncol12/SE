@@ -9,9 +9,8 @@
   * RecruitmentList implementation
   */
 
-
-void MemberList::plusMember(Member* newMember) { // »õ·Î¿î Ã¤¿ë Á¤º¸ µî·Ï
-    // ÇØ´ç Ã¤¿ë ¸®½ºÆ®¿¡ Ã¤¿ë Á¤º¸ Ãß°¡
+// ë©¤ë²„ ê°ì²´ë¥¼ í•˜ë‚˜ ì¶”ê°€í•´ì£¼ëŠ” í•¨ìˆ˜(numOfMembersë¡œ ê°ì²´ì˜ ê°œìˆ˜ë¥¼ í‘œì‹œ)
+void MemberList::plusMember(Member* newMember) {
     this->memberList[this->numOfMembers] = newMember;
     this->numOfMembers++;
 
@@ -21,6 +20,8 @@ void MemberList::plusMember(Member* newMember) { // »õ·Î¿î Ã¤¿ë Á¤º¸ µî·Ï
 /**
  * @return Recruitment**
  */
+
+// ë©¤ë²„ ë¦¬ìŠ¤íŠ¸ë¥¼ ë¦¬í„´í•´ì£¼ëŠ” í•¨ìˆ˜
 Member** MemberList::listMembers() {
     return this->memberList;
 }
