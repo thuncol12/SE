@@ -4,7 +4,6 @@
 
 
 #include "MemberManagementUI.h"
-#include "MemberManagement.h"
 
 /**
  * MemberManagementUI implementation
@@ -52,11 +51,6 @@ void MemberManagementUI::selectSignOut(Member* mem, MemberList memList) { // 회�
 }
 
 void MemberManagementUI::selectSignUp(MemberList memList, int flag, string name, int number, string id, string password) { // 회원 가입
-	int flag;
-	string name;
-	int number;
-	string id;
-	string password;
 
 	MemberManagement *signUp = new MemberManagement();
 	signUp->signUp(flag, name, number, id, password, memList);

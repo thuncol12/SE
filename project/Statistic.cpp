@@ -3,19 +3,6 @@
  */
 
 
-#include <string>
-#include "Application.h"
-#include "ApplicationManagement.h"
-#include "ApplicationManageUI.h"
-#include "CompanyMember.h"
-#include "GeneralMember.h"
-#include "Member.h"
-#include "MemberManagement.h"
-#include "MemberManagementUI.h"
-#include "Recruitment.h"
-#include "RecruitmentList.h"
-#include "RecruitmentManage.h"
-#include "RecruitmentManageUI.h"
 #include "Statistic.h"
 
  /**

@@ -1,12 +1,13 @@
 /**
  * Project Untitled
  */
-#include <string>
-#include <iostream>
+
 
 #ifndef _MEMBER_H
 #define _MEMBER_H
-
+#pragma once
+#include <string>
+#include <iostream>
 using namespace std;
 class Member {
     public: 

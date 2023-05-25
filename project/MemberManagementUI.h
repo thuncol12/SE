@@ -1,15 +1,17 @@
 /**
  * Project Untitled
  */
-#include "Member.h"
-#include <string>
-#include <iostream>
-#include "MemberList.h"
+
 
 
 #ifndef _MEMBERMANAGEMENTUI_H
 #define _MEMBERMANAGEMENTUI_H
-
+#pragma once
+#include "Member.h"
+#include <string>
+#include <iostream>
+#include "MemberList.h"
+#include "MemberManagement.h"
 using namespace std;
 
 class MemberManagementUI {

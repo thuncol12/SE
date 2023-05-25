@@ -5,7 +5,7 @@
 
 #ifndef _APPLICATIONMANAGEMENT_H
 #define _APPLICATIONMANAGEMENT_H
-
+#pragma once
 #include "Application.h"
 #include "GeneralMember.h"
 #include "Statistic.h"

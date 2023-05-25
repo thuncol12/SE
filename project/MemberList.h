@@ -5,6 +5,7 @@
 
 #ifndef _MEMBERLIST_H
 #define _MEMBERLIST_H
+#pragma once
 #include "Member.h"
 
 class MemberList {

@@ -5,6 +5,7 @@
 
 #ifndef _MEMBERMANAGEMENT_H
 #define _MEMBERMANAGEMENT_H
+#pragma once
 #include "CompanyMember.h"
 #include "GeneralMember.h"
 #include "Member.h"

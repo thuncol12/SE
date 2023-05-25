@@ -5,6 +5,7 @@
 
 #ifndef _APPLICATION_H
 #define _APPLICATION_H
+#pragma once
 #include <iostream>
 #include <string>
 #include "GeneralMember.h"
@@ -18,6 +19,8 @@ public:
     void getApplicationDetails();
 
     void cancelApplication();
+
+    Application(){}
 
 private:
     string companyName; //회사이름

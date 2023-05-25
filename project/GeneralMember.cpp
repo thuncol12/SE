@@ -16,7 +16,7 @@ GeneralMember::GeneralMember(string name, int idNum, string id, string password)
     Member(id, password);
 }
 
-void GeneralMember::addApplication(Application* pNewApplication)
+void GeneralMember::addApplication(Application pNewApplication)
 {
     this->applicationList[numOfApplication++] = pNewApplication;
     return;
@@ -26,6 +26,6 @@ void GeneralMember::addApplication(Application* pNewApplication)
 /**
  * @return Application**
  */
-Application** GeneralMember::listApplication() {
+Application* GeneralMember::listApplication() {
     return this->applicationList;
 }

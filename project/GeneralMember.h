@@ -5,7 +5,7 @@
 
 #ifndef _GENERALMEMBER_H
 #define _GENERALMEMBER_H
-
+#pragma once
 #include "Member.h"
 #include "Application.h"
 #include <iostream>
@@ -16,16 +16,20 @@ class GeneralMember: public Member {
     public: 
         
         GeneralMember(string name, int number, string id, string password);           // 생성자
-        void addApplication(Application* pNewApplication); // 지원서 수 +1
+        void addApplication(Application pNewApplication); // 지원서 수 +1
     
-        Application** listApplication();
+        Application* listApplication();
 
         int getNumOfApplication() {
             return this->numOfApplication;
         }
+
+        GeneralMember() {
+        }
+
     private: 
         int numOfApplication=0;
-        Application* applicationList[100];
+        Application applicationList[100];
         string name;
         int idNum;
 };

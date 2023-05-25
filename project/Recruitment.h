@@ -5,6 +5,7 @@
 
 #ifndef _RECRUITMENT_H
 #define _RECRUITMENT_H
+#pragma once
 #include <string>
 #include <iostream>
 using namespace std;
@@ -29,6 +30,9 @@ class Recruitment {
         }
         string getDeadline() {
             return deadline;
+        }
+        Recruitment() {
+
         }
 };
 

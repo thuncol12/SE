@@ -4,7 +4,7 @@
 
 #ifndef _RECRUITMENTMANAGEUI_H
 #define _RECRUITMENTMANAGEUI_H
-
+#pragma once
 #include "RecruitmentManage.h"
 #include "Recruitment.h"
 #include "CompanyMember.h"

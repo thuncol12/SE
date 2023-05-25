@@ -3,12 +3,13 @@
  */
 
 
-#include <string>
-using namespace std;
 
 #ifndef _APPLICATIONMANAGEUI_H
 #define _APPLICATIONMANAGEUI_H
+#include <string>
+#include "ApplicationManagement.h"
 
+using namespace std;
 class ApplicationManageUI {
 public:
 

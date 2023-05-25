@@ -1,5 +1,6 @@
 ﻿// 헤더 선언
 #define _CRT_SECURE_NO_WARNINGS
+#pragma once
 #include <iostream>
 #include<fstream>
 #include<cstdio>
@@ -18,6 +19,7 @@
 #include "RecruitmentManageUI.h"
 #include "Statistic.h"
 #include "MemberList.h"
+
 
 // 상수 선언
 #define MAX_STRING 32
@@ -209,46 +211,57 @@ void join(RecruitmentList system_RecruitmentList, MemberList system_MemberList)
 	//// 출력 형식
 	fprintf(out_fp, "1.1. 회원가입\n");
 	fprintf(out_fp, "> %d %s %s %s %s\n", user_type, name, SSN, ID, password);
+
+	SignUpmemberUI.selectSignUp(system_MemberList, user_type, name, SSN, ID, password);
+	return;
 }
 void func12(RecruitmentList system_RecruitmentList, MemberList system_MemberList) {
 	// 임시
-	char ID[MAX_STRING] = "hello";
-
-	//// 입력 형식 : 회원타입, 이름, 번호, ID, Password를 파일로부터 읽음
-
-	//// 해당 기능 수행  
+	char ID[MAX_STRING] = "id";
 
 	//// 출력 형식
 	fprintf(out_fp, "1.2. 회원탈퇴\n");
 	fprintf(out_fp, "> %s\n",  ID);
 
+	Member mem;
+
+	MemberManagementUI memberManagementUI;
+	memberManagementUI.selectSignOut(&mem, system_MemberList);
+	return;
 }
-void func21(RecruitmentList system_RecruitmentList, MemberList system_MemberList) {
+void func21(RecruitmentList system_RecruitmentList, MemberList system_MemberList) { 
 	char ID[MAX_STRING], password[MAX_STRING];
 
 	//// 입력 형식 : ID, Password를 파일로부터 읽음
 	fscanf(in_fp, "%s %s ", ID, password);
 
+	Member mem;
+
 	//// 해당 기능 수행  
-	// MemberManagementUI log_member;
-	// log_member.SelectLogIn();
-	// log_member.InsertLogInInfo(ID,password);
+	MemberManagementUI memberManagementUI;
+	memberManagementUI.selectLogIn(&mem);
 
 	//// 출력 형식
 	fprintf(out_fp, "2.1. 로그인\n");
 	fprintf(out_fp, "> %s %s\n", ID, password);
+	return;
 }
 void func22(RecruitmentList system_RecruitmentList, MemberList system_MemberList) {
-	char ID[MAX_STRING] = "hello";
+	char ID[MAX_STRING] = "id";
 
 	//// 입력 형식 : 회원타입, 이름, 번호, ID, Password를 파일로부터 읽음
 
+	Member mem;
+
+
 	//// 해당 기능 수행  
+	MemberManagementUI memberManagementUI;
+	bool check_logout = memberManagementUI.selectLogOut(&mem);
 
 	//// 출력 형식
 	fprintf(out_fp, "2.2. 로그아웃\n");
 	fprintf(out_fp, "> %s\n", ID);
-
+	return;
 }
 void func31(RecruitmentList system_RecruitmentList, MemberList system_MemberList) {
 	char part[MAX_STRING] = "업무1";
@@ -258,47 +271,73 @@ void func31(RecruitmentList system_RecruitmentList, MemberList system_MemberList
 	//// 입력 형식 : 회원타입, 이름, 번호, ID, Password를 파일로부터 읽음
 	fscanf(in_fp, "%s %d %s ", part, &numOfApplicant, deadline);
 
+	string p = part;
+	int n = numOfApplicant;
+	string d = deadline;
+
+	CompanyMember CM;
+
 	//// 해당 기능 수행  
+	RecruitmentManageUI recruitmentManageUI;
+	recruitmentManageUI.selectAddRecruitment(&CM, system_RecruitmentList);
 
 	//// 출력 형식
 	fprintf(out_fp, "3.1. 채용 정보 등록\n");
 	fprintf(out_fp, "> %s %d %s\n", part, numOfApplicant,deadline);
+	return;
 
 }
-void func32(RecruitmentList system_RecruitmentList, MemberList system_MemberList) {
+void func32(RecruitmentList system_RecruitmentList, MemberList system_MemberList) { //@@@@@@@@@@@@@@@@@
 	// 입력 형식 
 
+
+	CompanyMember CM;
+
 	// 해당 기능 수행  
+	RecruitmentManageUI recruitmentManageUI;
+	recruitmentManageUI.selectShowRecruitmentList(&CM);
 
 	// 출력 형식
 	fprintf(out_fp, "3.2. 등록된 채용 정보 조회\n");
+	return;
 }
-void func41(RecruitmentList system_RecruitmentList, MemberList system_MemberList) {
+void func41(RecruitmentList system_RecruitmentList, MemberList system_MemberList) { //@@@@@@@@@@@@@@@@@
 	// 임시
 	char companyName[MAX_STRING], part[MAX_STRING]="업무1", deadline[MAX_STRING]="날짜1";
 	int businessNum = 4, numOfApplicant = 3;
 
 	//// 입력 형식 : 회사이름을 파일로부터 읽음
 	fscanf(in_fp, "%s ", companyName);
+	string c = companyName;
 
 	//// 해당 기능 수행  
+	ApplicationManageUI applicationManageUI;
+	applicationManageUI.enterCompanyName(c, &system_RecruitmentList);
 
 	//// 출력 형식
 	fprintf(out_fp, "4.1. 채용 정보 검색\n");
 	fprintf(out_fp, "> %s %d %s %d %s\n", companyName,businessNum, part,numOfApplicant,deadline);
+	return;
 }
-void func42(RecruitmentList system_RecruitmentList, MemberList system_MemberList) {
+void func42(RecruitmentList system_RecruitmentList, MemberList system_MemberList) { //@@@@@@@@@@@@@@@@@
 	char name[MAX_STRING], part[MAX_STRING] = "업무1";
 	int businessNum = 4;
 
 	//// 입력 형식 : 회사이름을 파일로부터 읽음
-	fscanf(in_fp, "%s", name);
+	fscanf(in_fp, "%d", &businessNum);
+	string n = name;
+
+	GeneralMember GM;
+	Recruitment rec;
+
 
 	//// 해당 기능 수행  
-
+	ApplicationManageUI applicationManageUI;
+	applicationManageUI.applyForRecruitment(&GM,businessNum,&rec);
 	//// 출력 형식
 	fprintf(out_fp, "4.2. 채용 지원\n");
 	fprintf(out_fp, "> %s %d %s\n", name,businessNum,part);
+	return;
 }
 void func43(RecruitmentList system_RecruitmentList, MemberList system_MemberList) {
 	int businessNum = 3, numOfApplicant=6;
@@ -306,12 +345,16 @@ void func43(RecruitmentList system_RecruitmentList, MemberList system_MemberList
 		deadline[MAX_STRING] = "날짜1";
 
 	//// 입력 형식
+	// 임시로 멤버 변수 생성.
+	GeneralMember GM;
 
 	//// 해당 기능 수행  
-
+	ApplicationManageUI applicationManageUI;
+	applicationManageUI.selectApplyInfo(&GM);
 	//// 출력 형식
 	fprintf(out_fp, "4.3. 지원 정보 조회\n");
 	fprintf(out_fp, "> %s %d %s %d %s\n", companyName,businessNum,part,numOfApplicant,deadline);
+	return;
 }
 void func44(RecruitmentList system_RecruitmentList, MemberList system_MemberList) {
 	int businessNum = 0;
@@ -320,11 +363,16 @@ void func44(RecruitmentList system_RecruitmentList, MemberList system_MemberList
 	//// 입력 형식 : 회원타입, 이름, 번호, ID, Password를 파일로부터 읽음
 	fscanf(in_fp, "%d", &businessNum);
 
-	//// 해당 기능 수행  
+	//임시로 생성.
+	Application app;
 
+	//// 해당 기능 수행  
+	ApplicationManageUI applicationManageUI;
+	applicationManageUI.selectCancelApply(&app);
 	//// 출력 형식
 	fprintf(out_fp, "4.4. 지원취소\n");
 	fprintf(out_fp, "> %s %d %s\n", companyName, businessNum, part);
+	return;
 }
 void func51(RecruitmentList system_RecruitmentList, MemberList system_MemberList) {
 	int num = 0;
@@ -333,13 +381,14 @@ void func51(RecruitmentList system_RecruitmentList, MemberList system_MemberList
 	//// 입력 형식 : 회원타입, 이름, 번호, ID, Password를 파일로부터 읽음
 
 	//// 해당 기능 수행  
-
+	ApplicationManageUI applicationManageUI;
+	applicationManageUI.selectApplyStatistic(&system_RecruitmentList);
 	//// 출력 형식
 	fprintf(out_fp, "5.1. 지원 정보 통계\n");
 	fprintf(out_fp, "> %s %d\n", part, num);
+	return;
 }
 
 void program_exit()
 {
-
 }

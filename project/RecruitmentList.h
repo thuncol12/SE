@@ -5,6 +5,7 @@
 
 #ifndef _RECRUITMENTLIST_H
 #define _RECRUITMENTLIST_H
+#pragma once
 #include "Recruitment.h"
 
 class RecruitmentList {

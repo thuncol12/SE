@@ -3,31 +3,20 @@
  */
 
 
-#include <string>
-#include "Application.h"
+
 #include "ApplicationManagement.h"
-#include "ApplicationManageUI.h"
-#include "CompanyMember.h"
-#include "GeneralMember.h"
-#include "Member.h"
-#include "MemberManagement.h"
-#include "MemberManagementUI.h"
-#include "Recruitment.h"
-#include "RecruitmentList.h"
-#include "RecruitmentManage.h"
-#include "RecruitmentManageUI.h"
-#include "Statistic.h"
+
 
  /**
   * ApplicationManagement implementation
   */
 
 void ApplicationManagement::showApplyInfo(GeneralMember* GM) {
-    Application** AppList;
+    Application* AppList;
     AppList = GM->listApplication();
 
     for (int i = 0; i < GM->getNumOfApplication(); i++) {
-        (*AppList)[i].getApplicationDetails();
+        AppList[i].getApplicationDetails();
     }
 
     return;
@@ -57,7 +46,7 @@ Recruitment ApplicationManagement::showSearchResult(string companyName, Recruitm
 }
 
 void ApplicationManagement::addNewApplication(GeneralMember* GM, int bNum, Recruitment* rec) { //.
-    Application* app = new Application(rec->getCompanyName(), bNum, rec->getPart(), rec->getDeadline());
+    Application app = Application(rec->getCompanyName(), bNum, rec->getPart(), rec->getDeadline());
     GM->addApplication(app);
     return;
 }

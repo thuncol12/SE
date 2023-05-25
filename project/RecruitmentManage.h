@@ -5,7 +5,7 @@
 
 #ifndef _RECRUITMENTMANAGE_H
 #define _RECRUITMENTMANAGE_H
-
+#pragma once
 #include <string>
 #include <time.h>
 #include "RecruitmentList.h"
