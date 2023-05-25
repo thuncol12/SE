@@ -16,9 +16,9 @@ using namespace std;
 class Statistic {
 public:
 
-    void getRecruitStatistic();
+    void getRecruitStatistic(); //채용 통계 정보를 받아옴.
 
-    void getApplyStatistic();
+    void getApplyStatistic(); // 지원 통계 정보를 받아옴.
 
     Statistic(RecruitmentList* RList);
 

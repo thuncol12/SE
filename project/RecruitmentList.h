@@ -19,7 +19,7 @@ class RecruitmentList {
     
         Recruitment* listRecruitments(); // 해당 채용 리스트의 채용리스트 변수 주소 반환.
 
-        int getNumOfRecruitments() {
+        int getNumOfRecruitments() {    //채용 수를 받아옴.
             return this->numOfRecruitments;
         }
 
